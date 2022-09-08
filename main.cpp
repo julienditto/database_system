@@ -68,23 +68,17 @@ int main()
             case INSERT_CHOICE:
             {
                 cin.clear();
-                cin.clear();
-                cin.clear();
                 insertManager(namesTree, barCodeTree, hashTable, insertGamePtr);
                 break;
             }
             case DELETE_CHOICE:
             {
                 cin.clear();
-                cin.clear();
-                cin.clear();
                 deleteManager(namesTree, barCodeTree, hashTable, deleteStack, dummyGame);
                 break;
             }
             case UNDO_DELETE_CHOICE:
             {
-                cin.clear();
-                cin.clear();
                 cin.clear();
                 undoDelete(namesTree, barCodeTree, hashTable, deleteStack);
                 break;
@@ -102,8 +96,6 @@ int main()
             case WRITE_FILE_CHOICE:
             {
                 cin.clear();
-                cin.clear();
-                cin.clear();
                 namesTree.preOrder();
                 BoardGame* ptr = nullptr;
                 while (deleteStack.getCount() != 0) {
@@ -115,8 +107,6 @@ int main()
             case STATISTICS_CHOICE:
             {
                 cin.clear();
-                cin.clear();
-                cin.clear();
                 cout << "\n Statistics\n";
                 cout << "=======\n";
                 cout << "Load Factor: " << hashTable.getLoadFactor() << "%" << endl;
@@ -125,8 +115,6 @@ int main()
             }
             case SHOW_HELP_MENU_CHOICE:
             {
-                cin.clear();
-                cin.clear();
                 cin.clear();
                 intro();
             }
@@ -182,12 +170,8 @@ char menu()
     while(valid == false)
     {
         cin.clear();
-        cin.clear();
-        cin.clear();
         cout << "Enter your choice from the menu: " << endl;
         cin >> test;
-        cin.clear();
-        cin.clear();
         cin.clear();
         length = test.length();
         if (length != 1)
@@ -224,16 +208,9 @@ void deleteManager(BinarySearchTree<BoardGame*> &treeA, BinarySearchTree<BoardGa
     while(barcode != "Q")
     {
         cin.clear();
-        cin.clear();
-        cin.clear();
-        cin.clear();
         cout << "\nEnter the barcode of the board game that you want to delete (or Q to stop deleting) : \n";
         cin >> barcode;
         cin.clear();
-        cin.clear();
-        cin.clear();
-        cin.clear();
-        cin.ignore();
         if(barcode != "Q")
         {
             (*boardGame).setBarCode(barcode);
@@ -277,12 +254,7 @@ void searchManager(BinarySearchTree<BoardGame*> &treeA, BinarySearchTree<BoardGa
      {
          cout << "Enter \"T\" if you would like to search the title tree, \"B\" if you would like to search the barcode tree, \"H\" if you would like to search the hash table, or \"Q\" to quit the search manager." << endl;
          cin.clear();
-         cin.clear();
-         cin.clear();
-         cin.clear();
          cin >> searchChoice;
-         cin.clear();
-         cin.clear();
          cin.clear();
          if (searchChoice != "Q")
          {
@@ -291,11 +263,7 @@ void searchManager(BinarySearchTree<BoardGame*> &treeA, BinarySearchTree<BoardGa
                  cin.ignore();
                  cout << "\nEnter a boardgame name (or Q to stop searching) : \n";
                  cin.clear();
-                 cin.clear();
-                 cin.clear();
                  getline(cin, target);
-                 cin.clear();
-                 cin.clear();
                  cin.clear();
                  boardgame->setName(target);
                  if(target != "Q")
@@ -316,13 +284,8 @@ void searchManager(BinarySearchTree<BoardGame*> &treeA, BinarySearchTree<BoardGa
              {
                  cin.ignore();
                  cin.clear();
-                 cin.clear();
-                 cin.clear();
                  cout << "\nEnter a barcode (or Q to stop searching) : \n";
                  getline(cin, target);
-                 cin.clear();
-                 cin.clear();
-                 cin.clear();
                  cin.clear();
                  boardgame->setBarCode(target);
                  
@@ -338,13 +301,8 @@ void searchManager(BinarySearchTree<BoardGame*> &treeA, BinarySearchTree<BoardGa
              {
                  cin.ignore();
                  cin.clear();
-                 cin.clear();
-                 cin.clear();
                  cout << "\nEnter a barcode to search the hash table (or Q to stop searching) : \n";
                  getline(cin, target);
-                 cin.clear();
-                 cin.clear();
-                 cin.clear();
                  cin.clear();
                  if (target != "Q")
                  {
@@ -357,8 +315,6 @@ void searchManager(BinarySearchTree<BoardGame*> &treeA, BinarySearchTree<BoardGa
              else
              {
                  cin.ignore();
-                 cin.clear();
-                 cin.clear();
                  cin.clear();
                  cout << "Invalid Entry" << endl;
              }
@@ -392,11 +348,7 @@ bool parseBarcode(BinarySearchTree<BoardGame*> &treeB, BoardGame *insertGamePtr)
              success = false;
              first = false;
              cin.clear();
-             cin.clear();
-             cin.clear();
              cin >> testBarcode;
-             cin.clear();
-             cin.clear();
              cin.clear();
          }
          else
@@ -412,11 +364,7 @@ bool parseBarcode(BinarySearchTree<BoardGame*> &treeB, BoardGame *insertGamePtr)
                      success = false;
                      first = false;
                      cin.clear();
-                     cin.clear();
-                     cin.clear();
                      cin >> testBarcode;
-                     cin.clear();
-                     cin.clear();
                      cin.clear();
                  }
                  i++;
@@ -431,11 +379,7 @@ bool parseBarcode(BinarySearchTree<BoardGame*> &treeB, BoardGame *insertGamePtr)
                  cout << insertGamePtr->getBarCode() << " is already in the list. Enter another barcode or Q to stop inserting: \n";
                  first = false;
                  cin.clear();
-                 cin.clear();
-                 cin.clear();
                  cin >> testBarcode;
-                 cin.clear();
-                 cin.clear();
                  cin.clear();
              }
              else
@@ -471,12 +415,8 @@ void insertManager(BinarySearchTree<BoardGame*> &treeA, BinarySearchTree<BoardGa
     {
         insertGamePtr = new BoardGame();
         cin.clear();
-        cin.clear();
-        cin.clear();
         cout << "Enter the a 12 digit number for the barcode: " << endl;
         cin >> bcode;
-        cin.clear();
-        cin.clear();
         cin.clear();
         insertGamePtr->setBarCode(bcode);
         flag = parseBarcode(treeB, insertGamePtr);
@@ -486,13 +426,9 @@ void insertManager(BinarySearchTree<BoardGame*> &treeA, BinarySearchTree<BoardGa
             cout << "Enter the title of the boardgame: " << endl;
             getline(cin, name);
             cin.clear();
-            cin.clear();
-            cin.clear();
             insertGamePtr->setName(name);
             cout << "Enter the brand name: " << endl;
             getline(cin, brand);
-            cin.clear();
-            cin.clear();
             cin.clear();
             insertGamePtr->setBrand(brand);
             cout << "Enter the price of the boardgame (must be a double): " << endl;
@@ -510,12 +446,8 @@ void insertManager(BinarySearchTree<BoardGame*> &treeA, BinarySearchTree<BoardGa
             cin.ignore();
             insertGamePtr->setPrice(price);
             cin.clear();
-            cin.clear();
-            cin.clear();
             cout << "Enter the language of the boardgame: " << endl;
             cin >> lang;
-            cin.clear();
-            cin.clear();
             cin.clear();
             cin.ignore();
             insertGamePtr->setLanguage(lang);
@@ -807,9 +739,6 @@ void listManager (BinarySearchTree<BoardGame*>& treeA, BinarySearchTree<BoardGam
     while (display != "Q")
     {
         cout << "Enter \"H\" to see unsorted hash list, \"B\" to see boardgames sorted by barcodes, \"T\" to see boardgames sorted by titles, \"I\" to see the tree indented based on the level of each node, or \"Q\" to quit the list manager" << endl;
-        cin.clear();
-        cin.clear();
-        cin.clear();
         cin.clear();
         cin >> display;
         if(display == "H")
